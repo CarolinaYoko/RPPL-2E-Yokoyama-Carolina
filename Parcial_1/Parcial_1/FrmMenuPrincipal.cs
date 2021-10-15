@@ -123,6 +123,11 @@ namespace PetShop
 
         }
 
+        private void btnEnvios_Click(object sender, EventArgs e)
+        {
+            openChiledForm(new FrmColaDeVentas());
+        }
+
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();

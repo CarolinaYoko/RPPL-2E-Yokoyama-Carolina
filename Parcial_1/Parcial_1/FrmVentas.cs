@@ -133,6 +133,8 @@ namespace PetShop
                         if (Caja.VerificarStock(producto.Key, producto.Value) && Petshop.DescontarDeStock(producto.Key.idProducto, producto.Value))
                         {
                             Caja.AgregarAlCarrito(producto.Key, producto.Value);
+                            
+                            Petshop.AgregarALaColaVenta(new Venta(cliente, CantidadDeProductosAVender(), PesoTotalDeVenta()));
                         }
                         else
                         {

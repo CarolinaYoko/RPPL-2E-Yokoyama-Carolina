@@ -62,7 +62,7 @@ namespace PetShop
             // btnFinalizar
             // 
             this.btnFinalizar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnFinalizar.Location = new System.Drawing.Point(182, 512);
+            this.btnFinalizar.Location = new System.Drawing.Point(176, 512);
             this.btnFinalizar.Name = "btnFinalizar";
             this.btnFinalizar.Size = new System.Drawing.Size(209, 37);
             this.btnFinalizar.TabIndex = 4;
@@ -73,7 +73,7 @@ namespace PetShop
             // lvProductos
             // 
             this.lvProductos.HideSelection = false;
-            this.lvProductos.Location = new System.Drawing.Point(12, 102);
+            this.lvProductos.Location = new System.Drawing.Point(25, 102);
             this.lvProductos.MultiSelect = false;
             this.lvProductos.Name = "lvProductos";
             this.lvProductos.Size = new System.Drawing.Size(254, 389);
@@ -83,9 +83,9 @@ namespace PetShop
             // lvCarrito
             // 
             this.lvCarrito.HideSelection = false;
-            this.lvCarrito.Location = new System.Drawing.Point(312, 102);
+            this.lvCarrito.Location = new System.Drawing.Point(306, 102);
             this.lvCarrito.Name = "lvCarrito";
-            this.lvCarrito.Size = new System.Drawing.Size(260, 389);
+            this.lvCarrito.Size = new System.Drawing.Size(254, 389);
             this.lvCarrito.TabIndex = 7;
             this.lvCarrito.UseCompatibleStateImageBehavior = false;
             // 

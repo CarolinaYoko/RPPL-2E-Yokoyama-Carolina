@@ -39,6 +39,8 @@ namespace Entidades
         public static List<Usuario> ListaUsuarios;
         public static List<Cliente> ListaClientes;
         public static Dictionary<Producto, int> ListaProductos;
+        public static Queue<Venta> ColaVentas;
+        public static Stack<Venta> PilaVentasEnviadas;
         static double recaudacionDelDia;
 
 
@@ -50,6 +52,8 @@ namespace Entidades
             Petshop.ListaUsuarios = new List<Usuario>();
             Petshop.ListaClientes = new List<Cliente>();
             Petshop.ListaProductos = new Dictionary<Producto, int>();
+            Petshop.ColaVentas = new Queue<Venta>();
+            Petshop.PilaVentasEnviadas = new Stack<Venta>();
             Petshop.recaudacionDelDia = 0;
 
             CargarUsuarios();
@@ -166,6 +170,10 @@ namespace Entidades
 
         }
 
+        public static void AgregarALaColaVenta(Venta venta)
+        {
+            ColaVentas.Enqueue(venta);
+        }
     
 
 

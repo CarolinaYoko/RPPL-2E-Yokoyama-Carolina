@@ -55,7 +55,9 @@ namespace PetShop
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+            Caja.ListaProductosComprados.Clear();
             this.Close();
+
         }
     }
 }

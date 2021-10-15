@@ -114,7 +114,8 @@ namespace PetShop
             if(clienteSeleccion is not null)
             {
                 FrmVentas venta = new FrmVentas(clienteSeleccion);              
-                venta.ShowDialog();                
+                venta.ShowDialog();
+                this.ActualizarDataGrid();
             }
             else
             {
