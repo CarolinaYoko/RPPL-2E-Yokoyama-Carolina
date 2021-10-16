@@ -82,12 +82,29 @@ namespace PetShop
 
         private void txtDni_TextChanged(object sender, EventArgs e)
         {
+            //int dni;
+            //if (int.TryParse(txtDni.Text, out dni))
+            //{
+            //    this.usuario.DNI = dni;
+            //}
+        }
+
+        private void txtDni_Validating(object sender, CancelEventArgs e)
+        {
             int dni;
             if (int.TryParse(txtDni.Text, out dni))
             {
                 this.usuario.DNI = dni;
             }
+            else
+            {
+                txtDni.Text = this.usuario.DNI.ToString();
+                MessageBox.Show("DNI inválido. Debe ser numérico");
+            }
+
         }
+
+
 
         private void txtSueldoUsuario_TextChanged(object sender, EventArgs e)
         {
@@ -116,10 +133,7 @@ namespace PetShop
             else
             {
                 ((Administrador)this.usuario).EditarUsuario();
-
             }
-
-
 
             this.Close();
 
@@ -139,6 +153,7 @@ namespace PetShop
                 txtBono.Visible = true;
             }
         }
+
 
 
 

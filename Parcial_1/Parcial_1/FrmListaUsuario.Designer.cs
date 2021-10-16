@@ -83,6 +83,7 @@ namespace PetShop
             this.Name = "FrmListaUsuario";
             this.ShowIcon = false;
             this.Text = "FrmListaUsuario";
+            this.Activated += new System.EventHandler(this.FrmListaUsuario_Activated);
             this.Load += new System.EventHandler(this.FrmListaUsuario_Load);
             this.Leave += new System.EventHandler(this.FrmListaUsuario_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.dgUsuario)).EndInit();

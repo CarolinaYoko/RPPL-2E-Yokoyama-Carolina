@@ -46,15 +46,6 @@ namespace PetShop
             dgListaClientes.Columns["ClienteActivo"].Visible = false;
 
          
-
-            //foreach (Cliente item in Petshop.ListaClientes)
-            //{
-
-            //    if (item.ClienteActivo)
-            //    {
-            //        dgListasPetshop.Rows.Add(item.IdCliente, item.Nombre, item.Apellido, item.Telefono, item.Saldo);
-            //    } 
-            //}
         }
 
         private Cliente ObtenerDatosFilaDataGrid()
@@ -121,7 +112,6 @@ namespace PetShop
             {
                 MessageBox.Show("Debes seleccionar un cliente");
             }
-
 
         }
 

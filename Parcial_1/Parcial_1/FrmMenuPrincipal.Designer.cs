@@ -29,8 +29,10 @@ namespace PetShop
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenuPrincipal));
             this.panelMenuPrincipal = new System.Windows.Forms.Panel();
+            this.btnEnvios = new System.Windows.Forms.Button();
             this.btnFacturacion = new System.Windows.Forms.Button();
             this.panelSubMenuEmpleado = new System.Windows.Forms.Panel();
             this.btnBorrarUsuario = new System.Windows.Forms.Button();
@@ -47,7 +49,7 @@ namespace PetShop
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelChild = new System.Windows.Forms.Panel();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.btnEnvios = new System.Windows.Forms.Button();
+            this.tInactividad = new System.Windows.Forms.Timer(this.components);
             this.panelMenuPrincipal.SuspendLayout();
             this.panelSubMenuEmpleado.SuspendLayout();
             this.panelSubMenuCliente.SuspendLayout();
@@ -73,6 +75,24 @@ namespace PetShop
             this.panelMenuPrincipal.Name = "panelMenuPrincipal";
             this.panelMenuPrincipal.Size = new System.Drawing.Size(250, 600);
             this.panelMenuPrincipal.TabIndex = 0;
+            // 
+            // btnEnvios
+            // 
+            this.btnEnvios.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnEnvios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnEnvios.FlatAppearance.BorderSize = 0;
+            this.btnEnvios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEnvios.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnEnvios.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnEnvios.Location = new System.Drawing.Point(0, 617);
+            this.btnEnvios.Name = "btnEnvios";
+            this.btnEnvios.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnEnvios.Size = new System.Drawing.Size(233, 50);
+            this.btnEnvios.TabIndex = 7;
+            this.btnEnvios.Text = "Envíos";
+            this.btnEnvios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEnvios.UseVisualStyleBackColor = false;
+            this.btnEnvios.Click += new System.EventHandler(this.btnEnvios_Click);
             // 
             // btnFacturacion
             // 
@@ -308,6 +328,8 @@ namespace PetShop
             this.panelChild.Name = "panelChild";
             this.panelChild.Size = new System.Drawing.Size(600, 600);
             this.panelChild.TabIndex = 1;
+            this.panelChild.Enter += new System.EventHandler(this.panelChild_Enter);
+            this.panelChild.Leave += new System.EventHandler(this.panelChild_Leave);
             // 
             // btnCerrar
             // 
@@ -324,23 +346,9 @@ namespace PetShop
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // btnEnvios
+            // tInactividad
             // 
-            this.btnEnvios.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnEnvios.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnEnvios.FlatAppearance.BorderSize = 0;
-            this.btnEnvios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEnvios.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnEnvios.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnEnvios.Location = new System.Drawing.Point(0, 617);
-            this.btnEnvios.Name = "btnEnvios";
-            this.btnEnvios.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnEnvios.Size = new System.Drawing.Size(233, 50);
-            this.btnEnvios.TabIndex = 7;
-            this.btnEnvios.Text = "Envíos";
-            this.btnEnvios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEnvios.UseVisualStyleBackColor = false;
-            this.btnEnvios.Click += new System.EventHandler(this.btnEnvios_Click);
+            this.tInactividad.Tick += new System.EventHandler(this.tInactividad_Tick);
             // 
             // FrmMenuPrincipal
             // 
@@ -355,6 +363,8 @@ namespace PetShop
             this.Name = "FrmMenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmMenuPrincipal";
+            this.Enter += new System.EventHandler(this.FrmMenuPrincipal_Enter);
+            this.Leave += new System.EventHandler(this.FrmMenuPrincipal_Leave);
             this.panelMenuPrincipal.ResumeLayout(false);
             this.panelSubMenuEmpleado.ResumeLayout(false);
             this.panelSubMenuCliente.ResumeLayout(false);
@@ -385,5 +395,6 @@ namespace PetShop
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnFacturacion;
         private System.Windows.Forms.Button btnEnvios;
+        private System.Windows.Forms.Timer tInactividad;
     }
 }

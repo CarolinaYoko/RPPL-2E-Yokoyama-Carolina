@@ -26,9 +26,11 @@ namespace Parcial_1
                 Usuario auxUsuario = Usuario.ValidarUsuario(txtUsuario.Text, txtPassword.Text);
 
                 FrmMenuPrincipal FormApp = new FrmMenuPrincipal(auxUsuario);
-                FormApp.Show();
                 this.Hide();
-                
+                FormApp.ShowDialog();
+                this.Show();
+                this.txtPassword.Text = string.Empty;
+                this.txtUsuario.Text = string.Empty;
 
             }
             catch (UsuarioInvalidoException usuarioEx)

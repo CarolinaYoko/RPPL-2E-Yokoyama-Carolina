@@ -28,62 +28,53 @@ namespace PetShop
 
         protected virtual void btnAltaUsuario_Click(object sender, EventArgs e)
         {
-            int dni;
-            double sueldo;
+            double bono = 0;
+            Usuario auxUsuario = null;
 
-            switch ((EUsuarios)cmbUsuario.SelectedItem)
+            if (!string.IsNullOrWhiteSpace(txtNickNombreUsuario.Text) &&
+                                                !string.IsNullOrWhiteSpace(txtContraseniaUsuario.Text) &&
+                                                !string.IsNullOrWhiteSpace(txtNombreUsuario.Text) &&
+                                                !string.IsNullOrWhiteSpace(txtApellidoUsuario.Text) &&
+                                                int.TryParse(txtDni.Text, out int dni) == true &&
+                                                double.TryParse(txtSueldoUsuario.Text, out double sueldo) == true &&
+                                                (!txtBonoAdmin.Visible || double.TryParse(txtBonoAdmin.Text, out bono)))
             {
-                case EUsuarios.Empleado:
 
-                    if (!string.IsNullOrWhiteSpace(txtNickNombreUsuario.Text) &&
-                                                        !string.IsNullOrWhiteSpace(txtContraseniaUsuario.Text) &&
-                                                        !string.IsNullOrWhiteSpace(txtNombreUsuario.Text) &&
-                                                        !string.IsNullOrWhiteSpace(txtApellidoUsuario.Text) &&
-                                                        int.TryParse(txtDni.Text, out dni) == true &&
-                                                        double.TryParse(txtSueldoUsuario.Text, out sueldo) == true)
-                    {
-                        Empleado auxEmpleado = new Empleado(txtNickNombreUsuario.Text,
+                switch ((EUsuarios)cmbUsuario.SelectedItem)
+                {
+                    case EUsuarios.Empleado:
+
+                        auxUsuario = new Empleado(txtNickNombreUsuario.Text,
                                                             txtContraseniaUsuario.Text,
                                                             txtNombreUsuario.Text,
                                                             txtApellidoUsuario.Text,
-                                                            int.Parse(txtDni.Text),
-                                                            double.Parse(txtSueldoUsuario.Text));
-                        Empleado.AgregarUsuario(auxEmpleado);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Faltan algunos campos por rellenar o son valores no válidos");
-                    }
-                    break;
-                
-                case EUsuarios.Administrador:
+                                                            dni, sueldo);
+                        break;
 
-                    if (!string.IsNullOrWhiteSpace(txtNickNombreUsuario.Text) &&
-                                                        !string.IsNullOrWhiteSpace(txtContraseniaUsuario.Text) &&
-                                                        !string.IsNullOrWhiteSpace(txtNombreUsuario.Text) &&
-                                                        !string.IsNullOrWhiteSpace(txtApellidoUsuario.Text) &&
-                                                        int.TryParse(txtDni.Text, out dni) == true &&
-                                                        double.TryParse(txtSueldoUsuario.Text, out sueldo) == true)
-                    {
-                        Administrador auxAdministrador = new Administrador(txtNickNombreUsuario.Text,
+                    case EUsuarios.Administrador:
+
+                        auxUsuario = new Administrador(txtNickNombreUsuario.Text,
                                                         txtContraseniaUsuario.Text,
                                                         txtNombreUsuario.Text,
                                                         txtApellidoUsuario.Text,
-                                                        int.Parse(txtDni.Text),
-                                                        double.Parse(txtSueldoUsuario.Text), double.Parse(txtBonoAdmin.Text));
-                        Empleado.AgregarUsuario(auxAdministrador);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Faltan algunos campos por rellenar o son incorrectos");
-                    }
-                    break;
+                                                        dni, sueldo, bono);
+                        break;
+                }
+                Empleado.AgregarUsuario(auxUsuario);
+                SystemSounds.Asterisk.Play();
+                this.Close();
             }
-            SystemSounds.Asterisk.Play();
-           
-            
-            
-            this.Close();
+            else
+            {
+                MessageBox.Show("Faltan algunos campos por rellenar o son valores no válidos");
+                txtApellidoUsuario.Text = string.Empty;
+                txtBonoAdmin.Text = string.Empty;
+                txtContraseniaUsuario.Text = string.Empty;
+                txtDni.Text = string.Empty;
+                txtNickNombreUsuario.Text = string.Empty;
+                txtNombreUsuario.Text = string.Empty;
+                txtSueldoUsuario.Text = string.Empty;
+            }
         }
 
         /// <summary>

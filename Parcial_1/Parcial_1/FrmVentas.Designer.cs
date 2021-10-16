@@ -62,7 +62,7 @@ namespace PetShop
             // btnFinalizar
             // 
             this.btnFinalizar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnFinalizar.Location = new System.Drawing.Point(176, 512);
+            this.btnFinalizar.Location = new System.Drawing.Point(188, 512);
             this.btnFinalizar.Name = "btnFinalizar";
             this.btnFinalizar.Size = new System.Drawing.Size(209, 37);
             this.btnFinalizar.TabIndex = 4;

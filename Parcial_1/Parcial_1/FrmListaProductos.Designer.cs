@@ -31,13 +31,15 @@ namespace PetShop
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmListaProductos));
             this.dgProductos = new System.Windows.Forms.DataGridView();
-            this.btnCerrarListaProductos = new System.Windows.Forms.Button();
             this.TipoDeProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Peso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnCerrarListaProductos = new System.Windows.Forms.Button();
+            this.btnExportarTxt = new System.Windows.Forms.Button();
+            this.btnExportarCSV = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgProductos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,24 +57,11 @@ namespace PetShop
             this.Precio,
             this.Peso,
             this.Stock});
-            this.dgProductos.Location = new System.Drawing.Point(12, 75);
+            this.dgProductos.Location = new System.Drawing.Point(12, 61);
             this.dgProductos.Name = "dgProductos";
             this.dgProductos.RowTemplate.Height = 25;
-            this.dgProductos.Size = new System.Drawing.Size(575, 505);
+            this.dgProductos.Size = new System.Drawing.Size(575, 471);
             this.dgProductos.TabIndex = 0;
-            // 
-            // btnCerrarListaProductos
-            // 
-            this.btnCerrarListaProductos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCerrarListaProductos.BackgroundImage")));
-            this.btnCerrarListaProductos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCerrarListaProductos.FlatAppearance.BorderSize = 0;
-            this.btnCerrarListaProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrarListaProductos.Location = new System.Drawing.Point(557, 12);
-            this.btnCerrarListaProductos.Name = "btnCerrarListaProductos";
-            this.btnCerrarListaProductos.Size = new System.Drawing.Size(30, 30);
-            this.btnCerrarListaProductos.TabIndex = 1;
-            this.btnCerrarListaProductos.UseVisualStyleBackColor = true;
-            this.btnCerrarListaProductos.Click += new System.EventHandler(this.btnCerrarListaProductos_Click);
             // 
             // TipoDeProducto
             // 
@@ -104,12 +93,48 @@ namespace PetShop
             this.Stock.HeaderText = "Stock";
             this.Stock.Name = "Stock";
             // 
+            // btnCerrarListaProductos
+            // 
+            this.btnCerrarListaProductos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCerrarListaProductos.BackgroundImage")));
+            this.btnCerrarListaProductos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCerrarListaProductos.FlatAppearance.BorderSize = 0;
+            this.btnCerrarListaProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrarListaProductos.Location = new System.Drawing.Point(557, 12);
+            this.btnCerrarListaProductos.Name = "btnCerrarListaProductos";
+            this.btnCerrarListaProductos.Size = new System.Drawing.Size(30, 30);
+            this.btnCerrarListaProductos.TabIndex = 1;
+            this.btnCerrarListaProductos.UseVisualStyleBackColor = true;
+            this.btnCerrarListaProductos.Click += new System.EventHandler(this.btnCerrarListaProductos_Click);
+            // 
+            // btnExportarTxt
+            // 
+            this.btnExportarTxt.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnExportarTxt.Location = new System.Drawing.Point(98, 548);
+            this.btnExportarTxt.Name = "btnExportarTxt";
+            this.btnExportarTxt.Size = new System.Drawing.Size(162, 30);
+            this.btnExportarTxt.TabIndex = 2;
+            this.btnExportarTxt.Text = "Exportar a TXT";
+            this.btnExportarTxt.UseVisualStyleBackColor = true;
+            // 
+            // btnExportarCSV
+            // 
+            this.btnExportarCSV.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnExportarCSV.Location = new System.Drawing.Point(319, 548);
+            this.btnExportarCSV.Name = "btnExportarCSV";
+            this.btnExportarCSV.Size = new System.Drawing.Size(162, 30);
+            this.btnExportarCSV.TabIndex = 3;
+            this.btnExportarCSV.Text = "Exportar a CSV";
+            this.btnExportarCSV.UseVisualStyleBackColor = true;
+            this.btnExportarCSV.Click += new System.EventHandler(this.btnExportarCSV_Click);
+            // 
             // FrmListaProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(600, 600);
+            this.Controls.Add(this.btnExportarCSV);
+            this.Controls.Add(this.btnExportarTxt);
             this.Controls.Add(this.btnCerrarListaProductos);
             this.Controls.Add(this.dgProductos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -132,5 +157,7 @@ namespace PetShop
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Peso;
         private System.Windows.Forms.DataGridViewTextBoxColumn Stock;
+        private System.Windows.Forms.Button btnExportarTxt;
+        private System.Windows.Forms.Button btnExportarCSV;
     }
 }

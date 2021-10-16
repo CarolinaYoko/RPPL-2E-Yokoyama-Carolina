@@ -33,6 +33,7 @@ namespace PetShop
         private void ActualizarDataGrid()
         {
             List<Usuario> auxLista = new List<Usuario>();
+                   
 
             foreach (Usuario usuario in Petshop.ListaUsuarios)
             {
@@ -44,6 +45,16 @@ namespace PetShop
 
             dgUsuario.DataSource = auxLista;
             dgUsuario.AutoGenerateColumns = true;
+            dgUsuario.Columns["UsuarioActivo"].Visible = false;
+            
+            if (auxLista.Count > 0)
+            {               
+                dgUsuario.CurrentCell = dgUsuario.Rows[0].Cells[1];
+                dgUsuario.Rows[0].Selected = true;
+
+            }
+
+            dgUsuario.Refresh();
                         
         }
 
@@ -69,7 +80,7 @@ namespace PetShop
         /// </summary>
         private void SeleccionarDato()
         {
-            int indiceFila = dgUsuario.CurrentRow is not null ? dgUsuario.CurrentRow.Index : -1; ;
+            int indiceFila = dgUsuario.CurrentRow is not null ? dgUsuario.CurrentRow.Index : -1; 
 
             if (indiceFila >= 0)
             {
@@ -93,6 +104,13 @@ namespace PetShop
                     dgUsuario.DataSource = Empleado.FiltrarEmpleados();
                     break;
             }
+        }
+
+        private void FrmListaUsuario_Activated(object sender, EventArgs e)
+        {
+            this.ActualizarDataGrid();
+            this.SeleccionarDato();
+            this.cmbTipo.DataSource = Enum.GetValues(typeof(EUsuarios));
         }
     }
 }

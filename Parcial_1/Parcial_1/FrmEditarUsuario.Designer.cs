@@ -85,6 +85,7 @@ namespace PetShop
             this.txtDni.Size = new System.Drawing.Size(393, 26);
             this.txtDni.TabIndex = 14;
             this.txtDni.TextChanged += new System.EventHandler(this.txtDni_TextChanged);
+            this.txtDni.Validating += new System.ComponentModel.CancelEventHandler(this.txtDni_Validating);
             // 
             // txtApellidoUsuario
             // 
