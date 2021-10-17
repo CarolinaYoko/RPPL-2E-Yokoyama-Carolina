@@ -9,6 +9,10 @@ namespace Entidades
 {
     public class UsuarioInvalidoException : Exception
     {
+
+        /// <summary>
+        /// Sobreescribe el metodo Message para mostrar otro mensaje de advertencia
+        /// </summary>
         public override string Message
         {
             get

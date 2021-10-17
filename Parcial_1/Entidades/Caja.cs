@@ -15,7 +15,7 @@ namespace Entidades
     
 
         /// <summary>
-        /// Construya una caja con su lista de productos obtenidos de la seleccion
+        /// Construye una caja con su lista de productos obtenidos de la seleccion
         /// </summary>
         static Caja()
         {
@@ -24,8 +24,9 @@ namespace Entidades
             
         }
 
-
-
+        /// <summary>
+        /// Propiedad get del atributo tipo Diccionario de la Lista de productos comprados
+        /// </summary>
         public static Dictionary<Producto, int> ListaProductosComprados
         {
             get { return Caja.listaProductosComprados; }
@@ -94,6 +95,10 @@ namespace Entidades
             return resultado;
         }
 
+        /// <summary>
+        /// Calcula el peso de la compra realizada
+        /// </summary>
+        /// <returns>El peso total del carrito</returns>
         public static double PesoTotalDeCompra()
         {
             double total = 0;
@@ -106,6 +111,10 @@ namespace Entidades
             return total;
         }
 
+        /// <summary>
+        /// Calcula la cantidad de productos comprados
+        /// </summary>
+        /// <returns>La cantidad de productos en el carrito</returns>
         public static int CantidadDeProductosComprados()
         {
             int cantidad = 0;
@@ -118,11 +127,21 @@ namespace Entidades
             return cantidad;
         }
 
+        /// <summary>
+        /// Calcula el precio total de un producto comprado
+        /// </summary>
+        /// <param name="precioProducto">precio unitario</param>
+        /// <param name="cantidad">cantidad del producto</param>
+        /// <returns>El precio unitario por cantidad</returns>
         public static double PrecioTotalPorProducto(double precioProducto, int cantidad)
         {
             return precioProducto * cantidad;
         }
 
+        /// <summary>
+        /// Calcula el precio total de la compra 
+        /// </summary>
+        /// <returns>El precio total de los productos en el carrito</returns>
         public static double PrecioTotalDeCompra()
         {
             double total = 0;
@@ -135,6 +154,10 @@ namespace Entidades
             return total;
         }
 
+        /// <summary>
+        /// Crea un archivo de texto 
+        /// </summary>
+        /// <param name="detalleVenta">Detalle de la venta realizada</param>
         public static void ExportarTicketTxt(string detalleVenta)
         {
             Caja.numeroTicket++;

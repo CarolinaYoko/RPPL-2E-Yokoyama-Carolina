@@ -8,6 +8,9 @@ namespace Entidades
 {
     public class ClienteSinDineroExcepcion : Exception
     {
+       /// <summary>
+       /// Sobreescribe el metodo Message para mostrar otro mensaje de advertencia
+       /// </summary>
         public override string Message
         {
             get

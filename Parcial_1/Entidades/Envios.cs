@@ -13,13 +13,22 @@ namespace Entidades
         private static double precioMoto;
         private static double precioMiniflete;       
 
+        /// <summary>
+        /// Establece los precios de envíos en moto y miniflete por KM
+        /// </summary>
         static Envios()
         {
             precioMoto = 30;
             precioMiniflete = 50;         
         }                  
              
-
+        /// <summary>
+        /// Determina si el envío se hara en moto o miniflete en funcion de la cantidad de productos y peso total 
+        /// </summary>
+        /// <param name="peso"></param>
+        /// <param name="cantidad"></param>
+        /// <param name="tipoTransporte"></param>
+        /// <returns>Precio por KM del transporte que corresponda, sino -1</returns>
         public static double DeterminarTransporte(double peso, int cantidad, out string tipoTransporte)
         {
             double precio = -1;

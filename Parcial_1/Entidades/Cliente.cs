@@ -107,11 +107,14 @@ namespace Entidades
 
         }
 
-
+        /// <summary>
+        /// Genera un string con los datos del cliente
+        /// </summary>
+        /// <returns>String con los datos del cliente</returns>
         public string MostrarDatos()
         {
             StringBuilder respuesta = new StringBuilder();
-            respuesta.AppendLine("Id Cliente:" + this.idCliente);
+            respuesta.AppendLine("ID Cliente:" + this.idCliente);
             respuesta.AppendLine("Nombre:" + this.Nombre);
             respuesta.AppendLine("Apellido:" + this.Apellido);
             respuesta.AppendLine("Telefono:"+ this.Telefono);

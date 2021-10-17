@@ -15,7 +15,6 @@ namespace Entidades
         Juguetes,
         Camas,
         Cuidado
-
     }
 
     /// <summary>
@@ -27,6 +26,9 @@ namespace Entidades
         Administrador
     }
 
+    /// <summary>
+    /// Listados de tipo de transporte para envíos
+    /// </summary>
     public enum ETransporte
     {
         Moto = 30,
@@ -163,6 +165,10 @@ namespace Entidades
             Petshop.recaudacionDelDia += nuevaVenta;
         }
 
+        /// <summary>
+        /// Calcula la distancia del domicilio del cliente al local
+        /// </summary>
+        /// <returns>La distancia</returns>
         public static int CalcularDistancia()
         {
             Random distancia = new Random();
@@ -170,11 +176,20 @@ namespace Entidades
 
         }
 
+        /// <summary>
+        /// Agrega una venta a la Cola de ventas
+        /// </summary>
+        /// <param name="venta"></param>
         public static void AgregarALaColaVenta(Venta venta)
         {
             ColaVentas.Enqueue(venta);
         }
 
+        /// <summary>
+        /// Decide  si hay un numero en una cadena de caracteres
+        /// </summary>
+        /// <param name="cadena"></param>
+        /// <returns>true en caso que lo haya, sino false</returns>
         public static bool HayUnNumero(string cadena)
         {
             int aux;
