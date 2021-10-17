@@ -62,33 +62,12 @@ namespace PetShop
                 this.usuario.Contrasenia = txtContraseniaUsuario.Text;
             }
 
-        }
+        }       
 
-        private void txtNombreUsuario_TextChanged(object sender, EventArgs e)
-        {
-            //if (!string.IsNullOrWhiteSpace(txtNombreUsuario.Text))
-            //{
-            //    this.usuario.Nombre = txtNombreUsuario.Text;
-            //}
-        }
-
-        private bool HayUnNumero(string cadena)
-        {
-            int aux;
-
-            foreach (char letra in cadena)
-            {
-                if (int.TryParse(letra.ToString(), out aux))
-                {
-                    return true;
-                }
-            }
-            return false;           
-        }
-
+ 
         private void txtNombreUsuario_Validating(object sender, CancelEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtNombreUsuario.Text) && !this.HayUnNumero(txtNombreUsuario.Text))
+            if (!string.IsNullOrWhiteSpace(txtNombreUsuario.Text) && !Petshop.HayUnNumero(txtNombreUsuario.Text))
             {
                 this.usuario.Nombre = txtNombreUsuario.Text;
             }
@@ -99,17 +78,10 @@ namespace PetShop
             }
         }
 
-        private void txtApellidoUsuario_TextChanged(object sender, EventArgs e)
-        {
-            //if (!string.IsNullOrWhiteSpace(txtApellidoUsuario.Text))
-            //{
-            //    this.usuario.Apellido = txtApellidoUsuario.Text;
-            //}
-        }
-
+        
         private void txtApellidoUsuario_Validating(object sender, CancelEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtApellidoUsuario.Text) && !this.HayUnNumero(txtApellidoUsuario.Text))
+            if (!string.IsNullOrWhiteSpace(txtApellidoUsuario.Text) && !Petshop.HayUnNumero(txtApellidoUsuario.Text))
             {
                 this.usuario.Apellido = txtApellidoUsuario.Text;
             }
@@ -120,14 +92,6 @@ namespace PetShop
             }
         }
 
-        private void txtDni_TextChanged(object sender, EventArgs e)
-        {
-            //int dni;
-            //if (int.TryParse(txtDni.Text, out dni))
-            //{
-            //    this.usuario.DNI = dni;
-            //}
-        }
 
         private void txtDni_Validating(object sender, CancelEventArgs e)
         {
@@ -144,15 +108,7 @@ namespace PetShop
 
         }
 
-        private void txtSueldoUsuario_TextChanged(object sender, EventArgs e)
-        {
-            //double sueldo;
-            //if (double.TryParse(txtSueldoUsuario.Text, out sueldo))
-            //{
-            //    ((Empleado)this.usuario).Sueldo = sueldo;
-            //}
-        }
-
+        
         private void txtSueldoUsuario_Validating(object sender, CancelEventArgs e)
         {
             double sueldo;
@@ -166,15 +122,6 @@ namespace PetShop
                 MessageBox.Show("Sueldo inválido. Debe completar el campo con valores numéricos");
             }
 
-        }
-
-        private void txtBono_TextChanged(object sender, EventArgs e)
-        {
-            //double bono;
-            //if (double.TryParse(txtSueldoUsuario.Text, out bono))
-            //{
-            //    ((Administrador)this.usuario).Bono = bono;
-            //}
         }
 
         private void txtBono_Validating(object sender, CancelEventArgs e)

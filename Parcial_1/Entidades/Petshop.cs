@@ -174,8 +174,20 @@ namespace Entidades
         {
             ColaVentas.Enqueue(venta);
         }
-    
 
+        public static bool HayUnNumero(string cadena)
+        {
+            int aux;
+
+            foreach (char letra in cadena)
+            {
+                if (int.TryParse(letra.ToString(), out aux))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
 
     }
 }
