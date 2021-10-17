@@ -327,9 +327,7 @@ namespace PetShop
             this.panelChild.Location = new System.Drawing.Point(250, 0);
             this.panelChild.Name = "panelChild";
             this.panelChild.Size = new System.Drawing.Size(600, 600);
-            this.panelChild.TabIndex = 1;
-            this.panelChild.Enter += new System.EventHandler(this.panelChild_Enter);
-            this.panelChild.Leave += new System.EventHandler(this.panelChild_Leave);
+            this.panelChild.TabIndex = 1;            
             // 
             // btnCerrar
             // 
@@ -345,10 +343,7 @@ namespace PetShop
             this.btnCerrar.TabIndex = 0;
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
-            // tInactividad
-            // 
-            this.tInactividad.Tick += new System.EventHandler(this.tInactividad_Tick);
+           
             // 
             // FrmMenuPrincipal
             // 
@@ -363,8 +358,6 @@ namespace PetShop
             this.Name = "FrmMenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmMenuPrincipal";
-            this.Enter += new System.EventHandler(this.FrmMenuPrincipal_Enter);
-            this.Leave += new System.EventHandler(this.FrmMenuPrincipal_Leave);
             this.panelMenuPrincipal.ResumeLayout(false);
             this.panelSubMenuEmpleado.ResumeLayout(false);
             this.panelSubMenuCliente.ResumeLayout(false);

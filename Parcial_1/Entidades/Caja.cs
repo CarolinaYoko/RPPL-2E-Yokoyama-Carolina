@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,8 @@ namespace Entidades
     {
 
         static Dictionary<Producto, int> listaProductosComprados;
+        static int numeroTicket;
+    
 
         /// <summary>
         /// Construya una caja con su lista de productos obtenidos de la seleccion
@@ -17,14 +20,16 @@ namespace Entidades
         static Caja()
         {
             Caja.listaProductosComprados = new Dictionary<Producto, int>();
+            Caja.numeroTicket = 0;
+            
         }
 
-    
+
 
         public static Dictionary<Producto, int> ListaProductosComprados
         {
             get { return Caja.listaProductosComprados; }
-           
+
         }
 
 
@@ -45,7 +50,7 @@ namespace Entidades
                     resultado = true;
                 }
             }
-           
+
             return resultado;
         }
 
@@ -59,18 +64,18 @@ namespace Entidades
         {
             bool resultado = false;
 
-            if(precioTotal < auxCliente.Saldo)
+            if (precioTotal < auxCliente.Saldo)
             {
                 resultado = true;
             }
             else
-            {               
+            {
                 throw new ClienteSinDineroExcepcion();
             }
-            
+
             return resultado;
         }
-        
+
         /// <summary>
         /// Agrega un producto a la lista de productos a comprar
         /// </summary>
@@ -113,6 +118,11 @@ namespace Entidades
             return cantidad;
         }
 
+        public static double PrecioTotalPorProducto(double precioProducto, int cantidad)
+        {
+            return precioProducto * cantidad;
+        }
+
         public static double PrecioTotalDeCompra()
         {
             double total = 0;
@@ -124,6 +134,19 @@ namespace Entidades
 
             return total;
         }
+
+        public static void ExportarTicketTxt(string detalleVenta)
+        {
+            Caja.numeroTicket++;
+            TextWriter archivoDeTexto = new StreamWriter("Ticket-" + Caja.numeroTicket + ".txt");
+            archivoDeTexto.WriteLine(detalleVenta);
+            archivoDeTexto.Close();
+
+        }
+
+
+
+
 
 
     }

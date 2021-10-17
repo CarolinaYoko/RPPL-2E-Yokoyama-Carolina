@@ -48,6 +48,7 @@ namespace PetShop
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblServicioDeTransporte = new System.Windows.Forms.Label();
             this.lblTransporte = new System.Windows.Forms.Label();
+            this.btnImprimirTicket = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgDetalleDeCompra)).BeginInit();
             this.SuspendLayout();
             // 
@@ -138,7 +139,7 @@ namespace PetShop
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(194, 538);
+            this.btnAceptar.Location = new System.Drawing.Point(48, 535);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(213, 33);
             this.btnAceptar.TabIndex = 5;
@@ -206,12 +207,23 @@ namespace PetShop
             this.lblTransporte.Size = new System.Drawing.Size(71, 20);
             this.lblTransporte.TabIndex = 11;
             // 
+            // btnImprimirTicket
+            // 
+            this.btnImprimirTicket.Location = new System.Drawing.Point(320, 535);
+            this.btnImprimirTicket.Name = "btnImprimirTicket";
+            this.btnImprimirTicket.Size = new System.Drawing.Size(213, 33);
+            this.btnImprimirTicket.TabIndex = 12;
+            this.btnImprimirTicket.Text = "IMPRIMIR TICKET";
+            this.btnImprimirTicket.UseVisualStyleBackColor = true;
+            this.btnImprimirTicket.Click += new System.EventHandler(this.btnImprimirTicket_Click);
+            // 
             // FrmTotalCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(600, 600);
+            this.Controls.Add(this.btnImprimirTicket);
             this.Controls.Add(this.lblTransporte);
             this.Controls.Add(this.lblServicioDeTransporte);
             this.Controls.Add(this.lblTotalNumero);
@@ -255,5 +267,6 @@ namespace PetShop
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private System.Windows.Forms.Label lblServicioDeTransporte;
         private System.Windows.Forms.Label lblTransporte;
+        private System.Windows.Forms.Button btnImprimirTicket;
     }
 }

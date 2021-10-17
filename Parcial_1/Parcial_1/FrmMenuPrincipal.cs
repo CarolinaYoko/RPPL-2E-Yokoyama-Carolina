@@ -18,14 +18,14 @@ namespace PetShop
 
         private FrmListaUsuario formularioListaUsuarios;
 
-        private int contadorInactividad;
+        
 
         public FrmMenuPrincipal(Usuario usuarioLogueado)
         {
             InitializeComponent();
             Personalizar();
             this.ConfiguracionDeVistas(usuarioLogueado);
-            this.contadorInactividad = 0;
+           
 
         }
 
@@ -182,40 +182,7 @@ namespace PetShop
 
         }
 
-
-
-        private void FrmMenuPrincipal_Leave(object sender, EventArgs e)
-        {
-            this.contadorInactividad = 0;
-            this.tInactividad.Start();
-        }
-
-        private void FrmMenuPrincipal_Enter(object sender, EventArgs e)
-        {
-            this.tInactividad.Stop();
-        }
-
-        private void tInactividad_Tick(object sender, EventArgs e)
-        {
-            this.contadorInactividad++;
-
-            if (contadorInactividad > 20)
-            {
-                this.Close();
-            }
-
-        }
-
-        private void panelChild_Leave(object sender, EventArgs e)
-        {
-            this.contadorInactividad = 0;
-            this.tInactividad.Start();
-        }
-
-        private void panelChild_Enter(object sender, EventArgs e)
-        {
-            this.tInactividad.Stop();
-        }
+             
 
 
 

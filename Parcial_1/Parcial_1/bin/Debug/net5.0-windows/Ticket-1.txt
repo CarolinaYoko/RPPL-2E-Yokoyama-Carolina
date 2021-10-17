@@ -1,0 +1,22 @@
+
+DATOS DEL CLIENTE
+Id Cliente:0
+Nombre:Carolina
+Apellido:Yokoyama
+Telefono:42699266
+Distancia:17
+Saldo:3790
+
+-----------------------------------------------------------------------------------------------
+
+PRODUCTOS
+Nombre del producto|                    Detalle del producto|Precio unitario|  Cantidad|     Total
+            Cepillo|                              Para gatos|            400|         1|       400
+             Pelota|                                        |            300|         1|       300
+-----------------------------------------------------------------------------------------------
+
+MONTOS FINALES
+Precio de total de compra: 700
+Precio de Envío: 510
+Precio Final: 1210
+

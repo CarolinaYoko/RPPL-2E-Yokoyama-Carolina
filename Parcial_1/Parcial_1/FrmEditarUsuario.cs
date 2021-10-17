@@ -66,17 +66,57 @@ namespace PetShop
 
         private void txtNombreUsuario_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtNombreUsuario.Text))
+            //if (!string.IsNullOrWhiteSpace(txtNombreUsuario.Text))
+            //{
+            //    this.usuario.Nombre = txtNombreUsuario.Text;
+            //}
+        }
+
+        private bool HayUnNumero(string cadena)
+        {
+            int aux;
+
+            foreach (char letra in cadena)
+            {
+                if (int.TryParse(letra.ToString(), out aux))
+                {
+                    return true;
+                }
+            }
+            return false;           
+        }
+
+        private void txtNombreUsuario_Validating(object sender, CancelEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtNombreUsuario.Text) && !this.HayUnNumero(txtNombreUsuario.Text))
             {
                 this.usuario.Nombre = txtNombreUsuario.Text;
+            }
+            else
+            {
+                txtNombreUsuario.Text = this.usuario.Nombre;
+                MessageBox.Show("Debe completar sin espacios y con letras.");
             }
         }
 
         private void txtApellidoUsuario_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtApellidoUsuario.Text))
+            //if (!string.IsNullOrWhiteSpace(txtApellidoUsuario.Text))
+            //{
+            //    this.usuario.Apellido = txtApellidoUsuario.Text;
+            //}
+        }
+
+        private void txtApellidoUsuario_Validating(object sender, CancelEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtApellidoUsuario.Text) && !this.HayUnNumero(txtApellidoUsuario.Text))
             {
                 this.usuario.Apellido = txtApellidoUsuario.Text;
+            }
+            else
+            {
+                txtApellidoUsuario.Text = this.usuario.Apellido;
+                MessageBox.Show("Debe completar sin espacios y con letras.");
             }
         }
 
@@ -99,29 +139,57 @@ namespace PetShop
             else
             {
                 txtDni.Text = this.usuario.DNI.ToString();
-                MessageBox.Show("DNI inválido. Debe ser numérico");
+                MessageBox.Show("DNI inválido. Debe completar el campo con valores numéricos");
             }
 
         }
 
-
-
         private void txtSueldoUsuario_TextChanged(object sender, EventArgs e)
+        {
+            //double sueldo;
+            //if (double.TryParse(txtSueldoUsuario.Text, out sueldo))
+            //{
+            //    ((Empleado)this.usuario).Sueldo = sueldo;
+            //}
+        }
+
+        private void txtSueldoUsuario_Validating(object sender, CancelEventArgs e)
         {
             double sueldo;
             if (double.TryParse(txtSueldoUsuario.Text, out sueldo))
             {
-                ((Empleado)this.usuario).Sueldo = sueldo;
+                ((Empleado)this.usuario).Sueldo= sueldo;
             }
+            else
+            {
+                txtSueldoUsuario.Text = ((Empleado)this.usuario).Sueldo.ToString();
+                MessageBox.Show("Sueldo inválido. Debe completar el campo con valores numéricos");
+            }
+
         }
 
         private void txtBono_TextChanged(object sender, EventArgs e)
         {
+            //double bono;
+            //if (double.TryParse(txtSueldoUsuario.Text, out bono))
+            //{
+            //    ((Administrador)this.usuario).Bono = bono;
+            //}
+        }
+
+        private void txtBono_Validating(object sender, CancelEventArgs e)
+        {
             double bono;
-            if (double.TryParse(txtSueldoUsuario.Text, out bono))
+            if (double.TryParse(txtBono.Text, out bono))
             {
                 ((Administrador)this.usuario).Bono = bono;
             }
+            else
+            {
+                txtBono.Text = ((Administrador)this.usuario).Bono.ToString();
+                MessageBox.Show("Bono inválido. Debe completar el campo con valores numéricos");
+            }
+
         }
 
         private void btnEditarUsuario_Click(object sender, EventArgs e)
@@ -154,9 +222,7 @@ namespace PetShop
             }
         }
 
-
-
-
+       
     }
 
 

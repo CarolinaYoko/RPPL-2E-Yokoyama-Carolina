@@ -14,6 +14,8 @@ namespace PetShop
     public partial class FrmTotalCompra : Form
     {
         Cliente cliente;
+        double totalEnvio;
+        double totalFinal;
 
         public FrmTotalCompra(Cliente auxCliente)
         {
@@ -26,20 +28,18 @@ namespace PetShop
         {
             string tipo;
             double precioPorKM;
-            double totalEnvio;
-            double totalFinal;
 
             precioPorKM = Envios.DeterminarTransporte(Caja.PesoTotalDeCompra(), Caja.CantidadDeProductosComprados(), out tipo);
 
-            totalEnvio = precioPorKM * cliente.Distancia;
+            this.totalEnvio = precioPorKM * cliente.Distancia;
 
-            totalFinal = totalEnvio + Caja.PrecioTotalDeCompra();
+            this.totalFinal = this.totalEnvio + Caja.PrecioTotalDeCompra();
 
             lblCompraNumero.Text = Caja.PrecioTotalDeCompra().ToString();
-            lblTotalNumero.Text = totalFinal.ToString();
-            lblEnvioNumero.Text = totalEnvio.ToString();
-            lblTransporte.Text = tipo;            
-           
+            lblTotalNumero.Text = this.totalFinal.ToString();
+            lblEnvioNumero.Text = this.totalEnvio.ToString();
+            lblTransporte.Text = tipo;
+
             this.LlenarTabla();
 
         }
@@ -58,6 +58,12 @@ namespace PetShop
             Caja.ListaProductosComprados.Clear();
             this.Close();
 
+        }
+
+        private void btnImprimirTicket_Click(object sender, EventArgs e)
+        {
+            Caja.ExportarTicketTxt(Venta.DetalleVenta(this.cliente, this.totalFinal, this.totalEnvio));
+            MessageBox.Show("Ticket generado con éxito en carpeta souce...");
         }
     }
 }

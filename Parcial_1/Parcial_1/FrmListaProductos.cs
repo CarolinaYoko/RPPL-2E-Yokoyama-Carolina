@@ -38,41 +38,41 @@ namespace PetShop
         private void btnExportarCSV_Click(object sender, EventArgs e)
         {
 
-            writeCSV(dgProductos, "archivo.csv");
+            ExportarCSV(dgProductos, "archivo.csv");
         }
 
-        public void writeCSV(DataGridView gridIn, string outputFile)
+        public void ExportarCSV(DataGridView dg, string archivo)
         {
             //test to see if the DataGridView has any rows
-            if (gridIn.RowCount > 0)
+            if (dg.RowCount > 0)
             {
                 string value = "";
                 DataGridViewRow dr = new DataGridViewRow();
-                StreamWriter swOut = new StreamWriter(outputFile);
+                StreamWriter swOut = new StreamWriter(archivo);
 
                 //write header rows to csv
-                for (int i = 0; i <= gridIn.Columns.Count - 1; i++)
+                for (int i = 0; i <= dg.Columns.Count - 1; i++)
                 {
                     if (i > 0)
                     {
                         swOut.Write(",");
                     }
-                    swOut.Write(gridIn.Columns[i].HeaderText);
+                    swOut.Write(dg.Columns[i].HeaderText);
                 }
 
                 swOut.WriteLine();
 
                 //write DataGridView rows to csv
-                for (int j = 0; j <= gridIn.Rows.Count - 1; j++)
+                for (int j = 0; j <= dg.Rows.Count - 1; j++)
                 {
                     if (j > 0)
                     {
                         swOut.WriteLine();
                     }
 
-                    dr = gridIn.Rows[j];
+                    dr = dg.Rows[j];
 
-                    for (int i = 0; i <= gridIn.Columns.Count - 1; i++)
+                    for (int i = 0; i <= dg.Columns.Count - 1; i++)
                     {
                         if (i > 0)
                         {

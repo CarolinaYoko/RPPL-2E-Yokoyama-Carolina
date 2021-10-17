@@ -75,6 +75,7 @@ namespace PetShop
             this.txtSueldoUsuario.Size = new System.Drawing.Size(393, 26);
             this.txtSueldoUsuario.TabIndex = 15;
             this.txtSueldoUsuario.TextChanged += new System.EventHandler(this.txtSueldoUsuario_TextChanged);
+            this.txtSueldoUsuario.Validating += new System.ComponentModel.CancelEventHandler(this.txtSueldoUsuario_Validating);
             // 
             // txtDni
             // 
@@ -96,6 +97,7 @@ namespace PetShop
             this.txtApellidoUsuario.Size = new System.Drawing.Size(393, 26);
             this.txtApellidoUsuario.TabIndex = 13;
             this.txtApellidoUsuario.TextChanged += new System.EventHandler(this.txtApellidoUsuario_TextChanged);
+            this.txtApellidoUsuario.Validating += new System.ComponentModel.CancelEventHandler(this.txtApellidoUsuario_Validating);
             // 
             // txtNombreUsuario
             // 
@@ -106,6 +108,7 @@ namespace PetShop
             this.txtNombreUsuario.Size = new System.Drawing.Size(393, 26);
             this.txtNombreUsuario.TabIndex = 12;
             this.txtNombreUsuario.TextChanged += new System.EventHandler(this.txtNombreUsuario_TextChanged);
+            this.txtNombreUsuario.Validating += new System.ComponentModel.CancelEventHandler(this.txtNombreUsuario_Validating);
             // 
             // txtContraseniaUsuario
             // 
@@ -149,6 +152,7 @@ namespace PetShop
             this.txtBono.Size = new System.Drawing.Size(393, 26);
             this.txtBono.TabIndex = 19;
             this.txtBono.TextChanged += new System.EventHandler(this.txtBono_TextChanged);
+            this.txtBono.Validating += new System.ComponentModel.CancelEventHandler(this.txtBono_Validating);
             // 
             // FrmEditarUsuario
             // 

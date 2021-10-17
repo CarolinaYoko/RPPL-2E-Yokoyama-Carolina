@@ -107,6 +107,20 @@ namespace Entidades
 
         }
 
+
+        public string MostrarDatos()
+        {
+            StringBuilder respuesta = new StringBuilder();
+            respuesta.AppendLine("Id Cliente:" + this.idCliente);
+            respuesta.AppendLine("Nombre:" + this.Nombre);
+            respuesta.AppendLine("Apellido:" + this.Apellido);
+            respuesta.AppendLine("Telefono:"+ this.Telefono);
+            respuesta.AppendLine("Distancia:" + this.Distancia);
+            respuesta.AppendLine("Saldo:" + this.Saldo);        
+
+            return respuesta.ToString();
+        }
+
         /// <summary>
         /// Agrega un cliente al la lista de clientes
         /// </summary>
