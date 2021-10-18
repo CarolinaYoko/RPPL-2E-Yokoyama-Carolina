@@ -13,7 +13,6 @@ namespace PetShop
 {
     public partial class FrmColaDeVentas : Form
     {
-
         public FrmColaDeVentas()
         {
             InitializeComponent();
@@ -118,8 +117,6 @@ namespace PetShop
                 new_item.SubItems.Add(venta.PesoTotal.ToString());
 
             }
-        }
-
-       
+        }       
     }
 }

@@ -18,7 +18,6 @@ namespace PetShop
         {
             InitializeComponent();
         }
-
         private void FrmFacturacion_Load(object sender, EventArgs e)
         {
             lblRecaudacion.Text = Petshop.RecaudacionDelDia.ToString();

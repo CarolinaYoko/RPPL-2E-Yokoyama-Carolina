@@ -44,15 +44,6 @@ namespace PetShop
 
         }
 
-        private void LlenarTabla()
-        {
-            foreach (KeyValuePair<Producto, int> item in Caja.ListaProductosComprados)
-            {
-                dgDetalleDeCompra.Rows.Add(item.Key.nombre, item.Key.descripcion, item.Key.precio, item.Value, item.Key.precio * item.Value);
-
-            }
-        }
-
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             Caja.ListaProductosComprados.Clear();
@@ -63,7 +54,19 @@ namespace PetShop
         private void btnImprimirTicket_Click(object sender, EventArgs e)
         {
             Caja.ExportarTicketTxt(Venta.DetalleVenta(this.cliente, this.totalFinal, this.totalEnvio));
-            MessageBox.Show("Ticket generado con éxito en carpeta souce...");
+            MessageBox.Show("Ticket generado con éxito en carpeta Parcial_1/bin/Debug/net5.0-windows");
         }
+
+        /// <summary>
+        /// Carga el datagrid con el detalle de la compra realizada
+        /// </summary>
+        private void LlenarTabla()
+        {
+            foreach (KeyValuePair<Producto, int> item in Caja.ListaProductosComprados)
+            {
+                dgDetalleDeCompra.Rows.Add(item.Key.nombre, item.Key.descripcion, item.Key.precio, item.Value, item.Key.precio * item.Value);
+            }
+        }
+
     }
 }

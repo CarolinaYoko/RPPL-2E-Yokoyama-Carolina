@@ -14,7 +14,6 @@ namespace PetShop
     public partial class FrmEditarUsuario : Form
     {
         Usuario usuario;
-
         public FrmEditarUsuario(Usuario auxUsuario)
         {
             InitializeComponent();
@@ -36,9 +35,7 @@ namespace PetShop
                 txtBono.Text = ((Administrador)usuario).Bono.ToString();
             }
 
-
             this.CambiarVistas();
-
         }
 
         private void btnCerrarEditarUsuario_Click(object sender, EventArgs e)
@@ -52,7 +49,6 @@ namespace PetShop
             {
                 this.usuario.NickNombreUsuario = txtNickNombreUsuario.Text;
             }
-
         }
 
         private void txtContraseniaUsuario_TextChanged(object sender, EventArgs e)
@@ -61,9 +57,7 @@ namespace PetShop
             {
                 this.usuario.Contrasenia = txtContraseniaUsuario.Text;
             }
-
-        }       
-
+        }    
  
         private void txtNombreUsuario_Validating(object sender, CancelEventArgs e)
         {
@@ -77,7 +71,6 @@ namespace PetShop
                 MessageBox.Show("Debe completar sin espacios y con letras.");
             }
         }
-
         
         private void txtApellidoUsuario_Validating(object sender, CancelEventArgs e)
         {
@@ -91,7 +84,6 @@ namespace PetShop
                 MessageBox.Show("Debe completar sin espacios y con letras.");
             }
         }
-
 
         private void txtDni_Validating(object sender, CancelEventArgs e)
         {
@@ -107,7 +99,6 @@ namespace PetShop
             }
 
         }
-
         
         private void txtSueldoUsuario_Validating(object sender, CancelEventArgs e)
         {
@@ -167,9 +158,7 @@ namespace PetShop
             {
                 txtBono.Visible = true;
             }
-        }
-
-       
+        }       
     }
 
 

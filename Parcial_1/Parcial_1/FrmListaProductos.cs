@@ -21,13 +21,10 @@ namespace PetShop
 
         private void FrmoListaProductos_Load(object sender, EventArgs e)
         {
-
             foreach (KeyValuePair<Producto, int> item in Petshop.ListaProductos)
             {
                 dgProductos.Rows.Add(item.Key.tipoDeProducto, item.Key.nombre, item.Key.descripcion, item.Key.precio, item.Key.peso, item.Value);
-
             }
-
         }
 
         private void btnCerrarListaProductos_Click(object sender, EventArgs e)
@@ -37,20 +34,22 @@ namespace PetShop
 
         private void btnExportarCSV_Click(object sender, EventArgs e)
         {
-
             ExportarCSV(dgProductos, "archivo.csv");
         }
 
+        /// <summary>
+        /// Crea un archivo CSV
+        /// </summary>
+        /// <param name="dg"></param>
+        /// <param name="archivo"></param>
         public void ExportarCSV(DataGridView dg, string archivo)
-        {
-            //test to see if the DataGridView has any rows
+        {            
             if (dg.RowCount > 0)
             {
                 string value = "";
                 DataGridViewRow dr = new DataGridViewRow();
                 StreamWriter swOut = new StreamWriter(archivo);
 
-                //write header rows to csv
                 for (int i = 0; i <= dg.Columns.Count - 1; i++)
                 {
                     if (i > 0)
@@ -61,8 +60,7 @@ namespace PetShop
                 }
 
                 swOut.WriteLine();
-
-                //write DataGridView rows to csv
+                               
                 for (int j = 0; j <= dg.Rows.Count - 1; j++)
                 {
                     if (j > 0)
@@ -79,12 +77,9 @@ namespace PetShop
                             swOut.Write(",");
                         }
 
-                        value = dr.Cells[i].Value.ToString();
-                        //replace comma's with spaces
-                        value = value.Replace(',', ' ');
-                        //replace embedded newlines with spaces
+                        value = dr.Cells[i].Value.ToString();                        
+                        value = value.Replace(',', ' ');                        
                         value = value.Replace(Environment.NewLine, " ");
-
                         swOut.Write(value);
                     }
                 }

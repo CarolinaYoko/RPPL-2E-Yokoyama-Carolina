@@ -23,7 +23,6 @@ namespace PetShop
 
             if (auxCliente is not null)
                 this.cliente = auxCliente;
-
         }
 
         private void FrmVentas_Load(object sender, EventArgs e)
@@ -39,7 +38,6 @@ namespace PetShop
             lvProductos.View = View.SmallIcon;
 
         }
-
 
         private void btnAgregarAlCarrito_Click(object sender, EventArgs e)
         {
@@ -65,60 +63,7 @@ namespace PetShop
 
             lvCarrito.View = View.SmallIcon;
 
-        }
-
-        /// <summary>
-        /// Calcula el importe total la venta
-        /// </summary>
-        /// <returns>importe total o 0</returns>
-        private double PrecioTotalDeVenta()
-        {
-            double total = 0;
-
-            foreach (KeyValuePair<Producto, int> producto in auxCarrito)
-            {
-                total += producto.Key.precio * producto.Value;
-            }
-
-            return total;
-        }
-
-        private double PesoTotalDeVenta()
-        {
-            double total = 0;
-
-            foreach (KeyValuePair<Producto, int> producto in auxCarrito)
-            {
-                total += producto.Key.peso * producto.Value;
-            }
-
-            return total;
-        }
-
-        private int CantidadDeProductosAVender()
-        {
-            int cantidad = 0;
-
-            foreach (KeyValuePair<Producto, int> producto in auxCarrito)
-            {
-                cantidad += producto.Value;
-            }
-
-            return cantidad;
-        }
-
-
-        private double CalcularCostoEnvioVenta()
-        {
-            string tipo;
-            double precioPorKM;
-           
-            precioPorKM = Envios.DeterminarTransporte(this.PesoTotalDeVenta(), this.CantidadDeProductosAVender(), out tipo);
-
-            return precioPorKM * cliente.Distancia;       
-
-
-        }
+        }        
 
         private void btnFinalizar_Click(object sender, EventArgs e)
         {
@@ -171,12 +116,74 @@ namespace PetShop
 
                 this.auxCarrito.Remove(Producto.BuscarProductoPorId(int.Parse(itemProducto.Name)));
             }
-
         }
 
         private void btnCerrarVenta_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        /// <summary>
+        /// Calcula el importe total la venta antes de efectuar la operacion
+        /// </summary>
+        /// <returns>importe total o 0</returns>
+        private double PrecioTotalDeVenta()
+        {
+            double total = 0;
+
+            foreach (KeyValuePair<Producto, int> producto in auxCarrito)
+            {
+                total += producto.Key.precio * producto.Value;
+            }
+
+            return total;
+        }
+
+        /// <summary>
+        /// Calcula el peso total de la venta antes de efectuar la operacion
+        /// </summary>
+        /// <returns>peso total o 0</returns>
+        private double PesoTotalDeVenta()
+        {
+            double total = 0;
+
+            foreach (KeyValuePair<Producto, int> producto in auxCarrito)
+            {
+                total += producto.Key.peso * producto.Value;
+            }
+
+            return total;
+        }
+
+        /// <summary>
+        /// Calcula la cantidad de productos a vender antes de efectuar la operacion
+        /// </summary>
+        /// <returns>cantidad de productos o 0</returns>
+        private int CantidadDeProductosAVender()
+        {
+            int cantidad = 0;
+
+            foreach (KeyValuePair<Producto, int> producto in auxCarrito)
+            {
+                cantidad += producto.Value;
+            }
+
+            return cantidad;
+        }
+
+        /// <summary>
+        /// Calcula el coste de envio antes de efectuar la operacion
+        /// </summary>
+        /// <returns>costo del envío o 0</returns>
+        private double CalcularCostoEnvioVenta()
+        {
+            string tipo;
+            double precioPorKM;
+
+            precioPorKM = Envios.DeterminarTransporte(this.PesoTotalDeVenta(), this.CantidadDeProductosAVender(), out tipo);
+
+            return precioPorKM * cliente.Distancia;
+
         }
     }
 }

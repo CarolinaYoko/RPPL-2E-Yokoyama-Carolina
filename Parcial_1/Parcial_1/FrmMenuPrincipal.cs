@@ -21,8 +21,7 @@ namespace PetShop
         {
             InitializeComponent();
             Personalizar();
-            this.ConfiguracionDeVistas(usuarioLogueado);          
-
+            this.ConfiguracionDeVistas(usuarioLogueado); 
         }
 
         /// <summary>
@@ -43,7 +42,6 @@ namespace PetShop
                 panelSubMenuCliente.Visible = false;
             if (panelSubMenuEmpleado.Visible == true)
                 panelSubMenuEmpleado.Visible = false;
-
         }
 
         /// <summary>
@@ -149,7 +147,6 @@ namespace PetShop
                 MessageBox.Show("Usuario no seleccionado.");
             }
 
-            
         }
 
         private void btnFacturacion_Click(object sender, EventArgs e)
@@ -166,7 +163,6 @@ namespace PetShop
         {
             this.Close();
         }
-
 
         /// <summary>
         /// Muestra un formulario instanciado y lo adapta al panel

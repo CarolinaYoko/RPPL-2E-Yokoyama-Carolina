@@ -16,8 +16,7 @@ namespace PetShop
     {
         public FrmAltaUsuario()
         {
-            InitializeComponent();
-            
+            InitializeComponent();            
         }
 
         private void FrmAltaUsuario_Load(object sender, EventArgs e)

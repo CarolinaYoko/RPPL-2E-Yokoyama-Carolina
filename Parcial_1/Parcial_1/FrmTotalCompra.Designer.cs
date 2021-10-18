@@ -139,6 +139,7 @@ namespace PetShop
             // 
             // btnAceptar
             // 
+            this.btnAceptar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnAceptar.Location = new System.Drawing.Point(48, 535);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(213, 33);
@@ -209,6 +210,7 @@ namespace PetShop
             // 
             // btnImprimirTicket
             // 
+            this.btnImprimirTicket.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnImprimirTicket.Location = new System.Drawing.Point(320, 535);
             this.btnImprimirTicket.Name = "btnImprimirTicket";
             this.btnImprimirTicket.Size = new System.Drawing.Size(213, 33);

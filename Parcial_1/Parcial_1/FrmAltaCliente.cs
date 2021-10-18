@@ -14,13 +14,11 @@ using PetShop;
 namespace PetShop
 {
     public partial class FrmAltaCliente : Form
-    {
-        
+    {        
         public FrmAltaCliente()
         {
             InitializeComponent();           
         }
-
         
         protected virtual void btnRegistrarAlta_Click(object sender, EventArgs e)
         {

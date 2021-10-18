@@ -23,8 +23,7 @@ namespace PetShop
 
         public static Cliente ClienteSeleccion
         {
-            get { return FrmListaClientes.clienteSeleccion; }
-                      
+            get { return FrmListaClientes.clienteSeleccion; }                      
         }
 
         public void ActualizarDataGrid()
@@ -47,25 +46,6 @@ namespace PetShop
          
         }
 
-        private Cliente ObtenerDatosFilaDataGrid()
-        {
-            Cliente cliente = null;
-            int indiceFila = dgListaClientes.CurrentRow.Index;
-
-            if (indiceFila >= 0)
-            {
-                DataGridViewRow fila = dgListaClientes.Rows[indiceFila];
-
-                int id = (int)fila.Cells["ID"].Value;
-               
-                cliente = Cliente.BuscarClientePorId(id);
-              
-            }
-
-            return cliente;
-        }
-
-
         private void btnCerrarListaClientes_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -82,25 +62,7 @@ namespace PetShop
         {
             this.CargarCliente();
         }
-
-        private void CargarCliente()
-        {
-            int indiceFila = dgListaClientes.CurrentRow is not null ? dgListaClientes.CurrentRow.Index: -1;
-
-            if (indiceFila >= 0)
-            {
-                DataGridViewRow fila = dgListaClientes.Rows[indiceFila];
-                int auxId = int.Parse(fila.Cells["IdCliente"].Value.ToString());
-
-                FrmListaClientes.clienteSeleccion = Cliente.BuscarClientePorId(auxId);
-            }
-            else
-            {
-                FrmListaClientes.clienteSeleccion = null;
-            }
-
-        }               
-
+              
         private void btnVenta_Click(object sender, EventArgs e)
         {
             this.CargarCliente();
@@ -117,6 +79,27 @@ namespace PetShop
             }
 
         }
+
+        /// <summary>
+        /// Carga el cliente seleccionado en el datagrid en la variable local
+        /// </summary>
+        private void CargarCliente()
+        {
+            int indiceFila = dgListaClientes.CurrentRow is not null ? dgListaClientes.CurrentRow.Index : -1;
+
+            if (indiceFila >= 0)
+            {
+                DataGridViewRow fila = dgListaClientes.Rows[indiceFila];
+                int auxId = int.Parse(fila.Cells["IdCliente"].Value.ToString());
+
+                FrmListaClientes.clienteSeleccion = Cliente.BuscarClientePorId(auxId);
+            }
+            else
+            {
+                FrmListaClientes.clienteSeleccion = null;
+            }
+        }
+
 
     }
 }

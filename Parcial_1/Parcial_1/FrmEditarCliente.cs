@@ -15,7 +15,6 @@ namespace PetShop
     public partial class FrmEditarCliente : FrmAltaCliente
     {
         Cliente cliente;
-
         public FrmEditarCliente(Cliente auxCliente)
         {
             InitializeComponent();
@@ -90,8 +89,5 @@ namespace PetShop
             Cliente.EditarCliente(cliente);
             this.Close();
         }
-
-
-
     }
 }

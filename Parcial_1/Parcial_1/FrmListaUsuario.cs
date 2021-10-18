@@ -55,8 +55,29 @@ namespace PetShop
 
             }
 
-            dgUsuario.Refresh();
-                        
+            dgUsuario.Refresh();                        
+        }
+
+
+        /// <summary>
+        /// Trae el dato seleccionado en el DataGrid
+        /// </summary>
+        private void SeleccionarDato()
+        {
+            int indiceFila = dgUsuario.CurrentRow is not null ? dgUsuario.CurrentRow.Index : -1;
+
+            if (indiceFila >= 0)
+            {
+                DataGridViewRow fila = dgUsuario.Rows[indiceFila];
+                int auxId = int.Parse(fila.Cells["IDUsuario"].Value.ToString());
+
+                FrmListaUsuario.usuarioSeleccion = Empleado.BuscarEmpleadoPorId(auxId);
+            }
+            else
+            {
+                FrmListaUsuario.usuarioSeleccion = null;
+            }
+
         }
 
         private void btnCerrarListaUsuarios_Click(object sender, EventArgs e)
@@ -76,27 +97,6 @@ namespace PetShop
             this.SeleccionarDato();
         }
 
-        /// <summary>
-        /// Trae el dato seleccionado en el DataGrid
-        /// </summary>
-        private void SeleccionarDato()
-        {
-            int indiceFila = dgUsuario.CurrentRow is not null ? dgUsuario.CurrentRow.Index : -1; 
-
-            if (indiceFila >= 0)
-            {
-                DataGridViewRow fila = dgUsuario.Rows[indiceFila];
-                int auxId = int.Parse(fila.Cells["IDUsuario"].Value.ToString());
-
-                FrmListaUsuario.usuarioSeleccion = Empleado.BuscarEmpleadoPorId(auxId);
-            }
-            else
-            {
-                FrmListaUsuario.usuarioSeleccion = null;
-            }
-
-        }
-
         private void cmbTipo_SelectedValueChanged(object sender, EventArgs e)
         {
             this.ActualizarDataGrid();
@@ -108,5 +108,7 @@ namespace PetShop
             this.SeleccionarDato();
             this.cmbTipo.DataSource = Enum.GetValues(typeof(EUsuarios));
         }
+
+
     }
 }
