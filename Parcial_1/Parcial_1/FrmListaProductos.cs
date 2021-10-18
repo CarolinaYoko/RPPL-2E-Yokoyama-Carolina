@@ -34,7 +34,8 @@ namespace PetShop
 
         private void btnExportarCSV_Click(object sender, EventArgs e)
         {
-            ExportarCSV(dgProductos, "archivo.csv");
+            ExportarCSV(dgProductos, "ListaDeProductos.csv");
+            MessageBox.Show("Archivo CSV generado con éxito en carpeta Parcial_1/bin/Debug/net5.0-windows");
         }
 
         /// <summary>
