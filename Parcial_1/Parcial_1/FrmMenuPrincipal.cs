@@ -13,19 +13,15 @@ namespace PetShop
 {
     public partial class FrmMenuPrincipal : Form
     {
-
         private Form activeForm = null;
-
         private FrmListaUsuario formularioListaUsuarios;
-
-        
+        private FrmListaClientes formularioListaCliente;
 
         public FrmMenuPrincipal(Usuario usuarioLogueado)
         {
             InitializeComponent();
             Personalizar();
-            this.ConfiguracionDeVistas(usuarioLogueado);
-           
+            this.ConfiguracionDeVistas(usuarioLogueado);          
 
         }
 
@@ -36,7 +32,6 @@ namespace PetShop
         {
             panelSubMenuCliente.Visible = false;
             panelSubMenuEmpleado.Visible = false;
-
         }
 
         /// <summary>
@@ -73,16 +68,15 @@ namespace PetShop
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
-            openChiledForm(new FrmListaClientes());             
+            this.formularioListaCliente = new FrmListaClientes();            
+            openChiledForm(this.formularioListaCliente);
             MostrarSubmenus(panelSubMenuCliente);
         }
 
         private void btnEmpleados_Click(object sender, EventArgs e)
         {
-            this.formularioListaUsuarios = new FrmListaUsuario();
-            
+            this.formularioListaUsuarios = new FrmListaUsuario();            
             openChiledForm(this.formularioListaUsuarios);
-
             MostrarSubmenus(panelSubMenuEmpleado);
         }
 
@@ -95,15 +89,31 @@ namespace PetShop
 
         private void btnEditarCliente_Click(object sender, EventArgs e)
         {
-            openChiledForm(new FrmEditarCliente(FrmListaClientes.ClienteSeleccion));
-            OcultarSubmenus();
+            if (FrmListaClientes.ClienteSeleccion is not null)
+            {
+                openChiledForm(new FrmEditarCliente(FrmListaClientes.ClienteSeleccion));
+                OcultarSubmenus();
+            }
+            else
+            {
+                MessageBox.Show("Cliente no seleccionado.");
+            }
+            
         }
 
         private void btnBorrarCliente_Click(object sender, EventArgs e)
         {
-            Cliente.EliminarCliente(FrmListaClientes.ClienteSeleccion);
-            openChiledForm(new FrmListaClientes());
-            OcultarSubmenus();
+            if (FrmListaClientes.ClienteSeleccion is not null)
+            {
+                Cliente.EliminarCliente(FrmListaClientes.ClienteSeleccion);
+                this.formularioListaCliente.ActualizarDataGrid();
+                OcultarSubmenus();
+            }
+            else
+            {
+                MessageBox.Show("Cliente no seleccionado.");
+            }
+            
         }
 
         private void btnAgregarUsuario_Click(object sender, EventArgs e)
@@ -114,22 +124,37 @@ namespace PetShop
 
         private void btnEditarUsuario_Click(object sender, EventArgs e)
         {
-            openChiledForm(new FrmEditarUsuario(FrmListaUsuario.UsuarioSeleccion));
-            OcultarSubmenus();
+            if (FrmListaUsuario.UsuarioSeleccion is not null)
+            {
+                openChiledForm(new FrmEditarUsuario(FrmListaUsuario.UsuarioSeleccion));
+                OcultarSubmenus();
+            }
+            else
+            {
+                MessageBox.Show("Usuario no seleccionado.");
+            }
+
         }
 
         private void btnBorrarUsuario_Click(object sender, EventArgs e)
         {
-            Usuario.EliminarUsuario(FrmListaUsuario.UsuarioSeleccion);
-            this.formularioListaUsuarios.Activate();
-            OcultarSubmenus();
-        }
+            if (FrmListaUsuario.UsuarioSeleccion is not null)
+            {
+                Usuario.EliminarUsuario(FrmListaUsuario.UsuarioSeleccion);
+                this.formularioListaUsuarios.ActualizarDataGrid();
+                OcultarSubmenus();
+            }
+            else
+            {
+                MessageBox.Show("Usuario no seleccionado.");
+            }
 
+            
+        }
 
         private void btnFacturacion_Click(object sender, EventArgs e)
         {
             openChiledForm(new FrmFacturacion());
-
         }
 
         private void btnEnvios_Click(object sender, EventArgs e)
@@ -177,7 +202,8 @@ namespace PetShop
                 btnBorrarCliente.Visible = false;
                 btnEditarCliente.Visible = false;
                 panelSubMenuCliente.BackColor = Color.Transparent;
-                                
+                btnEnvios.Visible = false;
+                
             }
 
         }

@@ -34,25 +34,21 @@ namespace PetShop
             // txtNombreAlta
             // 
             this.txtNombreAlta.Location = new System.Drawing.Point(137, 125);
-            this.txtNombreAlta.TextChanged += new System.EventHandler(this.txtNombreAlta_TextChanged);
             this.txtNombreAlta.Validating += new System.ComponentModel.CancelEventHandler(this.txtNombreAlta_Validating);
             // 
             // txtTelefonoAlta
             // 
             this.txtTelefonoAlta.Location = new System.Drawing.Point(137, 259);
-            this.txtTelefonoAlta.TextChanged += new System.EventHandler(this.txtTelefonoAlta_TextChanged);
             this.txtTelefonoAlta.Validating += new System.ComponentModel.CancelEventHandler(this.txtTelefonoAlta_Validating);
             // 
             // txtSaldoAlta
             // 
             this.txtSaldoAlta.Location = new System.Drawing.Point(137, 323);
-            this.txtSaldoAlta.TextChanged += new System.EventHandler(this.txtSaldoAlta_TextChanged);
             this.txtSaldoAlta.Validating += new System.ComponentModel.CancelEventHandler(this.txtSaldoAlta_Validating);
             // 
             // txtApellidoAlta
             // 
             this.txtApellidoAlta.Location = new System.Drawing.Point(137, 192);
-            this.txtApellidoAlta.TextChanged += new System.EventHandler(this.txtApellidoAlta_TextChanged);
             this.txtApellidoAlta.Validating += new System.ComponentModel.CancelEventHandler(this.txtApellidoAlta_Validating);
             // 
             // btnRegistrarAlta

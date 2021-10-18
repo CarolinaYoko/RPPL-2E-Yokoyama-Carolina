@@ -1,22 +1,21 @@
 
 DATOS DEL CLIENTE
-Id Cliente:0
-Nombre:Carolina
-Apellido:Yokoyama
-Telefono:42699266
-Distancia:17
-Saldo:3790
+ID Cliente:1
+Nombre:Jose
+Apellido:Perez
+Telefono:42648826
+Distancia:15
+Saldo:5050
 
 -----------------------------------------------------------------------------------------------
 
 PRODUCTOS
 Nombre del producto|                    Detalle del producto|Precio unitario|  Cantidad|     Total
-            Cepillo|                              Para gatos|            400|         1|       400
-             Pelota|                                        |            300|         1|       300
+  Rascador FunnyCat|                              Para gatos|           1500|         1|      1500
 -----------------------------------------------------------------------------------------------
 
 MONTOS FINALES
-Precio de total de compra: 700
-Precio de Envío: 510
-Precio Final: 1210
+Precio de total de compra: 1500
+Precio de Envío: 450
+Precio Final: 1950
 

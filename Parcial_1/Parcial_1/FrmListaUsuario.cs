@@ -30,17 +30,18 @@ namespace PetShop
         /// <summary>
         /// Actualiza la informacion del DataGrid
         /// </summary>
-        private void ActualizarDataGrid()
+        public void ActualizarDataGrid()
         {
             List<Usuario> auxLista = new List<Usuario>();
-                   
 
-            foreach (Usuario usuario in Petshop.ListaUsuarios)
+            switch ((EUsuarios)cmbTipo.SelectedItem)
             {
-                if (usuario.UsuarioActivo)
-                {
-                    auxLista.Add(usuario);
-                }
+                case EUsuarios.Administrador:
+                    auxLista = Administrador.FiltrarAdministradores();
+                    break;
+                case EUsuarios.Empleado:
+                    auxLista = Empleado.FiltrarEmpleados();
+                    break;
             }
 
             dgUsuario.DataSource = auxLista;
@@ -65,9 +66,9 @@ namespace PetShop
 
         private void FrmListaUsuario_Load(object sender, EventArgs e)
         {
+            this.cmbTipo.DataSource = Enum.GetValues(typeof(EUsuarios));
             this.ActualizarDataGrid();
             this.SeleccionarDato();
-            this.cmbTipo.DataSource = Enum.GetValues(typeof(EUsuarios));
         }
 
         private void FrmListaUsuario_Leave(object sender, EventArgs e)
@@ -88,22 +89,17 @@ namespace PetShop
                 int auxId = int.Parse(fila.Cells["IDUsuario"].Value.ToString());
 
                 FrmListaUsuario.usuarioSeleccion = Empleado.BuscarEmpleadoPorId(auxId);
-
+            }
+            else
+            {
+                FrmListaUsuario.usuarioSeleccion = null;
             }
 
         }
 
         private void cmbTipo_SelectedValueChanged(object sender, EventArgs e)
         {
-            switch ((EUsuarios)cmbTipo.SelectedItem)
-            {
-                case EUsuarios.Administrador:
-                    dgUsuario.DataSource = Administrador.FiltrarAdministradores();
-                    break;
-                case EUsuarios.Empleado:
-                    dgUsuario.DataSource = Empleado.FiltrarEmpleados();
-                    break;
-            }
+            this.ActualizarDataGrid();
         }
 
         private void FrmListaUsuario_Activated(object sender, EventArgs e)

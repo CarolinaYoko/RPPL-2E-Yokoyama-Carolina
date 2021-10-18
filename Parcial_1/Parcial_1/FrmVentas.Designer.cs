@@ -79,6 +79,7 @@ namespace PetShop
             this.lvProductos.Size = new System.Drawing.Size(254, 389);
             this.lvProductos.TabIndex = 6;
             this.lvProductos.UseCompatibleStateImageBehavior = false;
+            this.lvProductos.View = System.Windows.Forms.View.Details;
             // 
             // lvCarrito
             // 

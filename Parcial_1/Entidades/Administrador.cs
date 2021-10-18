@@ -66,7 +66,7 @@ namespace Entidades
 
             foreach (Usuario usuario in Petshop.ListaUsuarios)
             {
-                if (usuario.GetType() == typeof(Administrador))
+                if (usuario.UsuarioActivo && usuario.GetType() == typeof(Administrador) )
                 {
                     auxLista.Add(usuario);
                 }

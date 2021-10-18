@@ -29,7 +29,6 @@ namespace PetShop
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenuPrincipal));
             this.panelMenuPrincipal = new System.Windows.Forms.Panel();
             this.btnEnvios = new System.Windows.Forms.Button();
@@ -49,7 +48,6 @@ namespace PetShop
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelChild = new System.Windows.Forms.Panel();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.tInactividad = new System.Windows.Forms.Timer(this.components);
             this.panelMenuPrincipal.SuspendLayout();
             this.panelSubMenuEmpleado.SuspendLayout();
             this.panelSubMenuCliente.SuspendLayout();
@@ -327,7 +325,7 @@ namespace PetShop
             this.panelChild.Location = new System.Drawing.Point(250, 0);
             this.panelChild.Name = "panelChild";
             this.panelChild.Size = new System.Drawing.Size(600, 600);
-            this.panelChild.TabIndex = 1;            
+            this.panelChild.TabIndex = 1;
             // 
             // btnCerrar
             // 
@@ -343,7 +341,6 @@ namespace PetShop
             this.btnCerrar.TabIndex = 0;
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-           
             // 
             // FrmMenuPrincipal
             // 
@@ -388,6 +385,5 @@ namespace PetShop
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnFacturacion;
         private System.Windows.Forms.Button btnEnvios;
-        private System.Windows.Forms.Timer tInactividad;
     }
 }

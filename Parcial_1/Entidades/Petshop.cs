@@ -115,8 +115,8 @@ namespace Entidades
             Producto p7 = new Producto(ETipoDeProductos.Cuidado, "Shamppoo Burbujas", 300, 0.5, "Para gatos y perros");
             Producto p8 = new Producto(ETipoDeProductos.Cuidado, "Pipeta", 500, 0.3 , "Para perros con peso > 6 kg ");
             Producto p9 = new Producto(ETipoDeProductos.Cuidado, "Cepillo", 400, 0.3, "Para gatos");
-            Producto p10 = new Producto(ETipoDeProductos.Juguetes, "Pelota", 300, 0.2);
-            Producto p11 = new Producto(ETipoDeProductos.Juguetes, "Rascador FunnyCat", 1500, 5, "Para gatos");
+            Producto p10 = new Producto(ETipoDeProductos.Juguetes, "Rascador FunnyCat", 1500, 5, "Para gatos");
+            Producto p11 = new Producto(ETipoDeProductos.Juguetes, "Pelota", 300, 0.2);
 
             ListaProductos.Add(p1, 300);
             ListaProductos.Add(p2, 300);

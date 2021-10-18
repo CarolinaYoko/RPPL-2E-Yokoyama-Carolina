@@ -18,8 +18,7 @@ namespace PetShop
         
         public FrmAltaCliente()
         {
-            InitializeComponent();
-           
+            InitializeComponent();           
         }
 
         

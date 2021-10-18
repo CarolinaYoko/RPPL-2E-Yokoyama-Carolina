@@ -20,7 +20,6 @@ namespace PetShop
         {
             InitializeComponent();
             this.cliente = auxCliente;
-
         }
 
         private void FrmEditarCliente_Load(object sender, EventArgs e)
@@ -30,16 +29,7 @@ namespace PetShop
             txtApellidoAlta.Text = cliente.Apellido;
             txtTelefonoAlta.Text = cliente.Telefono.ToString();
             txtSaldoAlta.Text = cliente.Saldo.ToString();
-        }
-
-        private void txtNombreAlta_TextChanged(object sender, EventArgs e)
-        {
-            //if (!string.IsNullOrWhiteSpace(txtNombreAlta.Text))
-            //{
-            //    this.cliente.Nombre = txtNombreAlta.Text;
-            //}
-
-        }
+        }        
 
         private void txtNombreAlta_Validating(object sender, CancelEventArgs e)
         {
@@ -52,16 +42,8 @@ namespace PetShop
                 txtNombreAlta.Text = this.cliente.Nombre;
                 MessageBox.Show("Debe completar sin espacios y con letras.");
             }
-        }
-
-        private void txtApellidoAlta_TextChanged(object sender, EventArgs e)
-        {
-            //if (!string.IsNullOrWhiteSpace(txtApellidoAlta.Text))
-            //{
-            //    this.cliente.Apellido = txtApellidoAlta.Text;
-            //}
-        }
-
+        }        
+        
         private void txtApellidoAlta_Validating(object sender, CancelEventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(txtApellidoAlta.Text) && !Petshop.HayUnNumero(txtApellidoAlta.Text))
@@ -74,16 +56,7 @@ namespace PetShop
                 MessageBox.Show("Debe completar sin espacios y con letras.");
             }
         }
-
-        private void txtTelefonoAlta_TextChanged(object sender, EventArgs e)
-        {
-            //long telefono;
-            //if (long.TryParse(txtTelefonoAlta.Text, out telefono) )
-            //{
-            //    this.cliente.Telefono = telefono;
-            //}
-        }
-
+       
         private void txtTelefonoAlta_Validating(object sender, CancelEventArgs e)
         {
             long telefono;
@@ -97,17 +70,7 @@ namespace PetShop
                 MessageBox.Show("Número de teléfono inválido. Debe completar el campo con valores numéricos");
             }
         }
-
-        private void txtSaldoAlta_TextChanged(object sender, EventArgs e)
-        {
-            //float saldo;
-            //if (float.TryParse(txtSaldoAlta.Text, out saldo))
-            //{
-            //    this.cliente.Saldo = saldo;
-            //}
-        }            
-
-
+       
         private void txtSaldoAlta_Validating(object sender, CancelEventArgs e)
         {
             float saldo;

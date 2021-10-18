@@ -27,7 +27,7 @@ namespace PetShop
                       
         }
 
-        private void ActualizarDataGrid()
+        public void ActualizarDataGrid()
         {
             List<Cliente> auxLista = new List<Cliente>();
 
@@ -44,7 +44,6 @@ namespace PetShop
             dgListaClientes.AutoGenerateColumns = true;           
 
             dgListaClientes.Columns["ClienteActivo"].Visible = false;
-
          
         }
 
@@ -95,8 +94,12 @@ namespace PetShop
 
                 FrmListaClientes.clienteSeleccion = Cliente.BuscarClientePorId(auxId);
             }
-        }
-               
+            else
+            {
+                FrmListaClientes.clienteSeleccion = null;
+            }
+
+        }               
 
         private void btnVenta_Click(object sender, EventArgs e)
         {

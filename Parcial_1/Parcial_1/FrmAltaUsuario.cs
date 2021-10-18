@@ -76,6 +76,16 @@ namespace PetShop
                 txtSueldoUsuario.Text = string.Empty;
             }
         }
+        
+        private void cmbUsuario_SelectedValueChanged(object sender, EventArgs e)
+        {
+            this.CambiarVistas();
+        }
+
+        private void btnCerrarEditarUsuario_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
         /// <summary>
         /// Cambia la vista según el tipo de usuario que se desea cargar
@@ -93,14 +103,5 @@ namespace PetShop
             }
         }
 
-        private void cmbUsuario_SelectedValueChanged(object sender, EventArgs e)
-        {
-            this.CambiarVistas();
-        }
-
-        private void btnCerrarEditarUsuario_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
     }
 }
